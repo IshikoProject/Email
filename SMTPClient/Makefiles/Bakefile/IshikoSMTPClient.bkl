@@ -1,0 +1,29 @@
+toolsets = vs2015 vs2013;
+
+vs2015.solutionfile = ../VC14/IshikoSMTPClient.sln;
+vs2013.solutionfile = ../VC12/IshikoSMTPClient.sln;
+
+library IshikoSMTPClient
+{
+    archs = x86 x86_64;
+
+    includedirs += ../../../Include/Ishiko/Email/SMTPClient;
+    includedirs += ../../../Include;
+    
+    outputdir = ../../../Lib/$(arch);
+
+    if ($(config) == Debug)
+    {
+        basename = IshikoSMTPClient-d;
+    }
+
+    headers
+    {
+        ../../../Include/Ishiko/Email/SMTPClient/SMTPClient.h
+    }
+
+    sources
+    {
+        ../../Source/SMTPClient.cpp
+    }
+}
